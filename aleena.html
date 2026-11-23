@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Air University, Islamabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--alt:#f3f6fa;--card:#fff;--text:#1c2433;--muted:#566176;--line:#dce3ec;--ink:#0b2545;--blue:#1d4e89;--gold:#b8892f;--navy:#0b2545;--ease:cubic-bezier(.22,1,.36,1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1424;--alt:#101a2e;--card:#14203a;--text:#e6ebf5;--muted:#9aa8c2;--line:#24324f;--ink:#d3e3f8;--blue:#8db4e8;--gold:#d4a84b;--navy:#08111f}}
+:root[data-theme="dark"]{--bg:#0c1424;--alt:#101a2e;--card:#14203a;--text:#e6ebf5;--muted:#9aa8c2;--line:#24324f;--ink:#d3e3f8;--blue:#8db4e8;--gold:#d4a84b;--navy:#08111f}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 Inter,system-ui,sans-serif;transition:background .5s,color .5s}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;line-height:1.2;margin:0;color:var(--ink)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+.top{background:var(--navy);color:#c3d0e4;font-size:.85rem;padding:7px 0}
+.top .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);transition:background .5s}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.logo svg{width:38px;height:38px}.logo b{font:700 1.2rem "Source Serif 4",serif;display:block;line-height:1.1}.logo small{font-size:.75rem;color:var(--muted)}
+nav{display:flex;align-items:center;gap:4px}
+nav a{text-decoration:none;font-size:.93rem;font-weight:500;padding:8px 14px;border-radius:6px;color:var(--text);transition:color .3s,background .3s}
+nav a:hover{background:var(--alt);color:var(--blue)}
+nav a.cta{background:var(--navy);color:#fff;margin-left:6px}nav a.cta:hover{background:var(--blue);color:#fff}
+#theme{border:1px solid var(--line);background:transparent;color:var(--text);font:500 .82rem Inter,sans-serif;padding:7px 12px;border-radius:6px;cursor:pointer;margin-left:8px;transition:background .3s}
+#theme:hover{background:var(--alt)}
+.hero{background:radial-gradient(90% 120% at 85% 0,#1d4e89 0,transparent 60%),linear-gradient(135deg,#0b2545,#0e2f57);color:#fff;padding:84px 0 130px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{color:#fff;font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:600;letter-spacing:-.01em}
+.hero h1,.hero p,.hero .btns,.pw0{opacity:0;animation:in 1.1s var(--ease) forwards}
+.hero p{animation-delay:.15s;color:#c3d0e4;font-size:1.1rem;max-width:500px;margin:18px 0 28px}.hero .btns{animation-delay:.3s}.pw0{animation-delay:.2s}
+@keyframes in{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:none}}
+.eyebrow{display:inline-block;border-left:3px solid var(--gold);padding-left:12px;margin-bottom:18px;color:#c3d0e4;font-size:.9rem}
+.btn{display:inline-block;padding:13px 26px;border-radius:6px;font:600 .95rem Inter,sans-serif;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .4s var(--ease),background .3s,border-color .3s}
+.btn.g{background:var(--gold);color:#fff}.btn.g:hover{background:#a37724;transform:translateY(-2px)}
+.btn.l{border-color:rgba(255,255,255,.5);color:#fff;margin-left:10px}.btn.l:hover{background:rgba(255,255,255,.1)}
+.pic{display:block;width:100%;aspect-ratio:5/3}
+.hero .pic{border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15)}
+.facts{margin-top:-64px;position:relative;z-index:3}
+.facts .wrap>div{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px rgba(11,37,69,.12);display:grid;grid-template-columns:repeat(3,1fr)}
+.facts section{padding:26px 28px;border-right:1px solid var(--line)}.facts section:last-child{border:0}
+.facts b{font:700 2rem "Source Serif 4",serif;color:var(--ink);display:block;line-height:1.2}.facts span{color:var(--muted);font-size:.92rem}
+section.s{padding:84px 0}.alt{background:var(--alt);transition:background .5s}
+.kick{color:var(--gold);font-weight:600;font-size:.88rem;letter-spacing:.04em;margin-bottom:8px}
+.t{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:14px}
+.lead{color:var(--muted);max-width:640px;margin:0 0 36px}
+.rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.on{opacity:1;transform:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.pill{display:grid;gap:22px}.pi{display:grid;grid-template-columns:48px 1fr;gap:18px}
+.pi svg{width:48px;height:48px;padding:11px;border-radius:8px;background:var(--alt);stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.alt .pi svg{background:var(--card)}
+.pi h3{font-size:1.15rem;margin-bottom:2px}.pi p{margin:0;color:var(--muted);font-size:.95rem}
+.vc{margin-top:28px;padding:22px 24px;background:var(--alt);border-left:3px solid var(--gold);border-radius:0 8px 8px 0}.vc p{margin:0 0 8px;color:var(--muted)}.vc b{color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));text-align:center}
+.stats div{padding:12px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats b{font:700 2.4rem "Source Serif 4",serif;color:var(--ink);display:block}.stats span{color:var(--muted);font-size:.9rem}
+.tabs{display:flex;gap:28px;border-bottom:1px solid var(--line);margin-bottom:28px;flex-wrap:wrap}
+.tab{background:none;border:0;color:var(--muted);font:600 .98rem Inter,sans-serif;padding:12px 0;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .3s,border-color .3s}
+.tab:hover{color:var(--ink)}.tab.on{color:var(--ink);border-color:var(--gold)}
+.panel{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:center;animation:in .8s var(--ease)}
+.panel[hidden]{display:none}.panel .pic{border-radius:10px;border:1px solid var(--line)}.panel h3{font-size:1.7rem;margin-bottom:10px}.panel p{color:var(--muted);margin:0;max-width:560px}
+.units{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:8px}
+.units div{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 8px 8px 0;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.units div:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,37,69,.08)}.units b{display:block;color:var(--ink);font-size:.97rem}.units span{color:var(--muted);font-size:.86rem}
+.chips{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.chip{background:none;border:0;color:var(--muted);font:600 .95rem Inter,sans-serif;padding:10px 0;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .3s,border-color .3s}
+.chip.on{color:var(--ink);border-color:var(--gold)}.chip:hover{color:var(--ink)}
+.news{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease),opacity .9s var(--ease)}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(11,37,69,.12)}
+.card .pic{transition:transform 1.2s var(--ease)}.card:hover .pic{transform:scale(1.04)}.pw{overflow:hidden}
+.cb{padding:18px 22px 24px}.meta{font-size:.78rem;color:var(--gold);font-weight:600;margin-bottom:6px}.cb h3{font-size:1.1rem;margin-bottom:6px}.cb p{margin:0;color:var(--muted);font-size:.92rem}
+.news .card[hidden]{display:none}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.car{display:grid;grid-template-columns:96px 1fr;gap:30px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:34px}
+.av{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font:600 2rem "Source Serif 4",serif;border:3px solid var(--gold)}
+.slide{display:none;animation:in .8s var(--ease)}.slide.on{display:block}
+.slide q{font:600 1.3rem/1.55 "Source Serif 4",serif;quotes:none;display:block;color:var(--ink)}.slide b{display:block;margin-top:14px;color:var(--blue);font-size:.95rem}
+.nav2{display:flex;gap:8px;margin-top:18px}.nav2 button{width:40px;height:40px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:1.15rem;cursor:pointer;transition:background .3s}.nav2 button:hover{background:var(--alt)}
+.ci p{margin:0 0 18px;color:var(--muted)}.ci b{display:block;color:var(--ink)}
+form{display:grid;gap:14px}
+input,select{padding:13px 15px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--text);font:1rem Inter,sans-serif;width:100%;transition:border-color .3s,box-shadow .3s}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,78,137,.18);outline:0}
+.btn.n{background:var(--navy);color:#fff;justify-self:start}.btn.n:hover{background:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.err{color:#b4344f;min-height:1.4em;margin:0;font-weight:600;font-size:.92rem}.err.ok{color:#23805a}
+footer{background:var(--navy);color:#a9b8d0;padding:46px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:.92rem}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}footer h3{color:#fff;font-size:1.05rem;margin-bottom:10px}footer a{display:block;text-decoration:none;margin-bottom:6px}footer a:hover{color:#fff}
+footer small{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;opacity:.8}
+@media(max-width:860px){.hero .wrap,.two,.panel,footer .wrap{grid-template-columns:1fr}.hero{padding:56px 0 110px}.facts .wrap>div{grid-template-columns:1fr}.facts section{border-right:0;border-bottom:1px solid var(--line)}.car{grid-template-columns:1fr}nav a:not(.cta){display:none}.btn.l{margin:10px 0 0}.stats div{border:0}#theme{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1,.hero p,.hero .btns,.pw0,.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="s-campus" viewBox="0 0 200 120"><rect width="200" height="120" fill="#dbe5f1"/><circle cx="164" cy="26" r="12" fill="#ead9a8"/><ellipse cx="42" cy="28" rx="22" ry="6" fill="#fff" opacity=".8"/><rect y="98" width="200" height="22" fill="#c4d2c8"/><rect x="48" y="56" width="104" height="42" fill="#f7f9fc"/><path d="M42 56L100 28l58 28z" fill="#1d4e89"/><g fill="#b8c7da"><rect x="58" y="60" width="8" height="38"/><rect x="78" y="60" width="8" height="38"/><rect x="114" y="60" width="8" height="38"/><rect x="134" y="60" width="8" height="38"/></g><rect x="92" y="72" width="16" height="26" fill="#13315c"/><circle cx="22" cy="86" r="14" fill="#8fae9c"/><circle cx="182" cy="88" r="12" fill="#8fae9c"/></symbol>
+<symbol id="s-doc" viewBox="0 0 200 120"><rect width="200" height="120" fill="#e3e9f2"/><rect x="62" y="12" width="76" height="96" rx="5" fill="#fff"/><g fill="#b8c7da"><rect x="74" y="28" width="52" height="6" rx="3"/><rect x="74" y="42" width="52" height="6" rx="3"/><rect x="74" y="56" width="36" height="6" rx="3"/></g><circle cx="120" cy="82" r="13" fill="#c9a24a"/><path d="M114 94l-4 14 10-5 10 5-4-14z" fill="#c9a24a"/></symbol>
+<symbol id="s-shield" viewBox="0 0 200 120"><rect width="200" height="120" fill="#dde6ef"/><path d="M100 14l42 14v32q0 30-42 48Q58 90 58 60V28z" fill="#1d4e89"/><path d="M100 24l32 11v25q0 22-32 37z" fill="#2f6bb0"/><rect x="88" y="52" width="24" height="20" rx="4" fill="#fff"/><path d="M92 52v-6a8 8 0 0116 0v6" fill="none" stroke="#fff" stroke-width="4"/></symbol>
+<symbol id="s-fest" viewBox="0 0 200 120"><rect width="200" height="120" fill="#e8ecf2"/><path d="M0 40Q50 66 100 40T200 40" fill="none" stroke="#b8c7da" stroke-width="2"/><path d="M20 44l12 22 12-22z" fill="#1d4e89"/><path d="M64 52l12 22 12-22z" fill="#8da9c4"/><path d="M108 52l12 22 12-22z" fill="#1d4e89"/><path d="M152 44l12 22 12-22z" fill="#c9a24a"/></symbol>
+<symbol id="s-trophy" viewBox="0 0 200 120"><rect width="200" height="120" fill="#e5ece7"/><path d="M76 24h48v28a24 24 0 01-48 0z" fill="#c9a24a"/><path d="M76 34H62a14 14 0 0014 22M124 34h14a14 14 0 01-14 22" fill="none" stroke="#b8892f" stroke-width="5"/><rect x="94" y="76" width="12" height="16" fill="#b8892f"/><rect x="78" y="92" width="44" height="10" rx="4" fill="#8c6a22"/></symbol>
+<symbol id="s-book" viewBox="0 0 200 120"><rect width="200" height="120" fill="#dbe5f1"/><path d="M100 40Q70 28 40 36v56q30-8 60 4z" fill="#fff"/><path d="M100 40q30-12 60-4v56q-30-8-60 4z" fill="#eef2f8"/><path d="M100 40v56" stroke="#8da9c4" stroke-width="3"/><g fill="#8da9c4"><rect x="50" y="48" width="38" height="4" rx="2"/><rect x="50" y="60" width="38" height="4" rx="2"/><rect x="112" y="48" width="38" height="4" rx="2"/></g><path d="M100 12l24 11-24 11-24-11z" fill="#1d4e89"/></symbol>
+<symbol id="s-people" viewBox="0 0 200 120"><rect width="200" height="120" fill="#e3e9f2"/><circle cx="60" cy="52" r="14" fill="#e3c4a8"/><path d="M36 106a24 24 0 0148 0z" fill="#8da9c4"/><circle cx="100" cy="46" r="16" fill="#d9b394"/><path d="M72 106a28 28 0 0156 0z" fill="#1d4e89"/><circle cx="140" cy="52" r="14" fill="#e3c4a8"/><path d="M116 106a24 24 0 0148 0z" fill="#b8892f"/></symbol>
+</defs></svg>
+
+<div class="top"><div class="wrap"><span>E-9, Islamabad, Pakistan</span><span>Phone: 051-9262557-9</span></div></div>
+<header><div class="wrap">
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#0b2545"/><path d="M8 26l12-14 12 14-12-5z" fill="#c9a24a"/><path d="M14 30h12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg><span><b>Air University</b><small>Islamabad · Est. 2002</small></span></a>
+  <nav aria-label="Main"><a href="#about">About</a><a href="#academics">Academics</a><a href="#news">News</a><a href="#alumni">Alumni</a><a class="cta" href="#contact">Admissions</a><button id="theme" aria-pressed="false">Dark</button></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div><span class="eyebrow">Islamabad · Since 2002</span><h1>Taking Academic Excellence to New Heights</h1>
+  <p>A leading Pakistani university where quality teaching, interdisciplinary research and real-world skills prepare graduates to lead with integrity.</p>
+  <div class="btns"><a class="btn g" href="#academics">Explore programmes</a><a class="btn l" href="#contact">Contact admissions</a></div></div>
+  <div class="pw0"><svg class="pic" role="img" aria-label="Illustration of the university campus"><use href="#s-campus"/></svg></div>
+</div></div>
+
+<div class="facts"><div class="wrap"><div>
+  <section><b>2nd</b><span>National ranking</span></section>
+  <section><b>1009</b><span>Best Global Universities, U.S. News &amp; World Report</span></section>
+  <section><b>24 years</b><span>Of quality teaching since 2002</span></section>
+</div></div></div>
+
+<section class="s" id="about"><div class="wrap two">
+  <div class="rv"><p class="kick">ABOUT US</p><h2 class="t">Why Air University</h2>
+  <p class="lead" style="margin-bottom:0">We are committed to leaving the world a better place. We pursue new technology, encourage creativity, engage with our communities and share an entrepreneurial mindset.</p>
+  <div class="vc"><p>Mission: to foster excellence in education and research, developing graduates with knowledge, integrity and social responsibility for a better society.</p><b>Air Marshal (Retd) Abdul Moeed Khan, HI(M)</b><br><span style="color:var(--muted);font-size:.9rem">Vice Chancellor</span></div></div>
+  <div class="pill rv">
+    <div class="pi"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg><div><h3>Quality education</h3><p>Undergraduate, master’s and PhD programmes in cutting-edge fields.</p></div></div>
+    <div class="pi"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5 5L3 18l3 3 6.7-6.7a4 4 0 005-5l-2.4 2.4-2.6-.6-.6-2.6z"/></svg><div><h3>Real-world skills</h3><p>Hands-on learning with industry and national institutions.</p></div></div>
+    <div class="pi"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 1.5 6 5.5"/></svg><div><h3>A supportive community</h3><p>Societies, mentors and an active alumni network.</p></div></div>
+  </div>
+</div></section>
+
+<section class="s alt"><div class="wrap"><div class="stats rv">
+  <div><b data-n="7">0</b><span>Campuses</span></div><div><b data-n="89">0</b><span>Degree programmes</span></div><div><b data-n="530">0</b><span>Faculty members</span></div>
+  <div><b data-n="14500">0</b><span>Enrolled students</span></div><div><b data-n="15750">0</b><span>Alumni</span></div><div><b data-n="9">0</b><span>Societies and clubs</span></div>
+</div></div></section>
+
+<section class="s" id="academics"><div class="wrap">
+  <p class="kick rv">ACADEMICS</p><h2 class="t rv">Programmes and institutes</h2><p class="lead rv">Choose a level of study to learn more.</p>
+  <div class="tabs rv"><button class="tab on" data-p="0">Undergraduate</button><button class="tab" data-p="1">Master’s</button><button class="tab" data-p="2">PhD</button></div>
+  <div class="panel" data-i="0"><svg class="pic" role="img" aria-label="Open book"><use href="#s-book"/></svg><div><h3>Undergraduate programmes</h3><p>Build your foundation and professional skills with diverse programmes that turn students into successful graduates.</p></div></div>
+  <div class="panel" data-i="1" hidden><svg class="pic" role="img" aria-label="Students together"><use href="#s-people"/></svg><div><h3>Master’s programmes</h3><p>Deepen your expertise in a specialised field, with one of the widest selections of MS programmes in the country.</p></div></div>
+  <div class="panel" data-i="2" hidden><svg class="pic" role="img" aria-label="Trophy"><use href="#s-trophy"/></svg><div><h3>PhD programmes</h3><p>Create knowledge that fuels economic progress and supports professional and national development.</p></div></div>
+</div></section>
+
+<section class="s alt"><div class="wrap">
+  <p class="kick rv">NETWORK</p><h2 class="t rv">Constituent units and affiliated institutes</h2>
+  <div class="units rv">
+    <div><b>Fazaia Medical College</b><span>Islamabad</span></div><div><b>Fazaia Ruth Pfau Medical College</b><span>Karachi</span></div>
+    <div><b>College of Aviation Safety Management</b><span>Karachi</span></div><div><b>College of Flying Training</b><span>Risalpur</span></div>
+    <div><b>NASTP Institute of Information Technology</b><span>Lahore</span></div><div><b>Fazaia College of Nursing and Allied Health Sciences</b><span>Islamabad</span></div>
+    <div><b>Fazaia Bilquis College of Education (Women)</b><span>Nur Khan</span></div><div><b>Fazaia College of Education for Women</b><span>Lahore</span></div>
+    <div><b>College of Education for Women</b><span>Peshawar</span></div><div><b>College of Education</b><span>Peshawar</span></div>
+    <div><b>Aero Medical Institute</b><span>PAF Base Masroor, Karachi</span></div>
+  </div>
+</div></section>
+
+<section class="s" id="news"><div class="wrap">
+  <p class="kick rv">NEWS</p><h2 class="t rv">Latest from campus</h2>
+  <div class="chips"><button class="chip on" data-f="all">All</button><button class="chip" data-f="p">Partnerships</button><button class="chip" data-f="c">Cyber security</button><button class="chip" data-f="l">Campus life</button></div>
+  <div class="news">
+    <div class="card" data-k="p"><div class="pw"><svg class="pic"><use href="#s-doc"/></svg></div><div class="cb"><div class="meta">01 Oct 2026 · Partnerships</div><h3>MoU with the National Assembly Secretariat</h3><p>New paths for research, internships and policy work.</p></div></div>
+    <div class="card" data-k="c"><div class="pw"><svg class="pic"><use href="#s-shield"/></svg></div><div class="cb"><div class="meta">02 Oct 2026 · Cyber security</div><h3>Securing Pakistan’s digital frontier</h3><p>HEC and National CERT join hands on cyber resilience.</p></div></div>
+    <div class="card" data-k="c"><div class="pw"><svg class="pic"><use href="#s-shield"/></svg></div><div class="cb"><div class="meta">12 Oct 2026 · Cyber security</div><h3>Pakistan CyberSecurity Challenge 2026</h3><p>The country’s best defenders come together.</p></div></div>
+    <div class="card" data-k="p"><div class="pw"><svg class="pic"><use href="#s-people"/></svg></div><div class="cb"><div class="meta">15 Sep 2026 · Partnerships</div><h3>Pakistan–Türkiye academic ties</h3><p>A Turkish Higher Education Council delegation visits.</p></div></div>
+    <div class="card" data-k="p"><div class="pw"><svg class="pic"><use href="#s-doc"/></svg></div><div class="cb"><div class="meta">18 Sep 2026 · Partnerships</div><h3>Air University and NADRA</h3><p>Turning academic expertise into practical solutions.</p></div></div>
+    <div class="card" data-k="c"><div class="pw"><svg class="pic"><use href="#s-shield"/></svg></div><div class="cb"><div class="meta">19 Aug 2026 · Cyber security</div><h3>National Cyber Security Operations Centre opens</h3><p>Inaugurated at National CERT.</p></div></div>
+    <div class="card" data-k="l"><div class="pw"><svg class="pic"><use href="#s-fest"/></svg></div><div class="cb"><div class="meta">14 Aug 2026 · Campus life</div><h3>Independence Day celebrations</h3><p>A day of unity, culture and national pride.</p></div></div>
+    <div class="card" data-k="l"><div class="pw"><svg class="pic"><use href="#s-trophy"/></svg></div><div class="cb"><div class="meta">27 Jun 2026 · Campus life</div><h3>THE Sustainability Impact Ranking 2026</h3><p>Air University is recognised globally.</p></div></div>
+  </div>
+</div></section>
+
+<section class="s alt"><div class="wrap">
+  <p class="kick rv">CAMPUS LIFE</p><h2 class="t rv">Learning beyond the classroom</h2>
+  <div class="grid3">
+    <div class="card rv"><div class="pw"><svg class="pic"><use href="#s-book"/></svg></div><div class="cb"><h3>Mentor lectures</h3><p>Guidance from experienced professionals to elevate your learning.</p></div></div>
+    <div class="card rv"><div class="pw"><svg class="pic"><use href="#s-people"/></svg></div><div class="cb"><h3>Group study</h3><p>Learn with peers and build understanding and teamwork.</p></div></div>
+    <div class="card rv"><div class="pw"><svg class="pic"><use href="#s-fest"/></svg></div><div class="cb"><h3>Art and culture</h3><p>Celebrate creativity and heritage through expression.</p></div></div>
+  </div>
+</div></section>
+
+<section class="s" id="alumni"><div class="wrap">
+  <p class="kick rv">ALUMNI</p><h2 class="t rv">Graduates making an impact</h2>
+  <div class="car rv"><div class="av" id="av">U</div><div>
+    <div class="slide on" data-i="U"><q>PhD scholar in agricultural robotics at Cornell University, and the first Airian to reach Cornell.</q><b>Usama Bin Sabir</b></div>
+    <div class="slide" data-i="M"><q>PIA’s first female flying spanner engineer, a historic milestone for women in aviation engineering.</q><b>Mehvish Anwar</b></div>
+    <div class="slide" data-i="N"><q>Commercial Director at Jazz, leading the largest revenue-generating region with over USD 200M a year.</q><b>Maryam Nisar</b></div>
+    <div class="slide" data-i="S"><q>MS scholar in nuclear and subnuclear physics at the University of Bologna, and founder of the Air Astronomical Society.</q><b>Salman Ahmad Bhutta</b></div>
+    <div class="nav2"><button id="pv" aria-label="Previous">‹</button><button id="nx" aria-label="Next">›</button></div>
+  </div></div>
+</div></section>
+
+<section class="s alt" id="contact"><div class="wrap two">
+  <div class="ci rv"><p class="kick">ADMISSIONS</p><h2 class="t">Start your application</h2>
+  <p class="lead">Tell us what you are interested in and our team will get in touch.</p>
+  <p><b>Address</b>E-9, Islamabad, Pakistan</p><p><b>Phone</b>051-9262557-9</p></div>
+  <form id="f" novalidate class="rv">
+    <input id="n" placeholder="Full name" aria-label="Full name"><input id="e" type="email" placeholder="Email address" aria-label="Email address">
+    <select id="s" aria-label="Level of study"><option value="">Level of study</option><option>Undergraduate</option><option>Master’s</option><option>PhD</option></select>
+    <p class="err" id="m" role="status"></p><button class="btn n" type="submit">Submit enquiry</button>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><h3>Air University</h3><p>Taking academic excellence to new heights. E-9, Islamabad · 051-9262557-9</p></div>
+  <div><h3>Explore</h3><a href="#about">About</a><a href="#academics">Academics</a><a href="#news">News</a></div>
+  <div><h3>Connect</h3><a href="#alumni">Alumni</a><a href="#contact">Admissions</a></div>
+  <small>© 2026 Concept redesign. Unofficial design demo, with facts taken from au.edu.pk.</small>
+</div></footer>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return[].slice.call(document.querySelectorAll(s))};
+var tb=$("#theme"),dark=matchMedia("(prefers-color-scheme: dark)").matches;
+function setT(){document.documentElement.setAttribute("data-theme",dark?"dark":"light");tb.textContent=dark?"Light":"Dark";tb.setAttribute("aria-pressed",dark)}
+setT();tb.onclick=function(){dark=!dark;setT()};
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target)}})},{threshold:.12});
+$$(".rv").forEach(function(el){io.observe(el)});
+var co=new IntersectionObserver(function(en){en.forEach(function(x){if(!x.isIntersecting)return;co.unobserve(x.target);var el=x.target,n=+el.dataset.n,t0=performance.now();
+  (function step(t){var p=Math.min((t-t0)/2000,1);el.textContent=Math.round(n*(1-Math.pow(1-p,4))).toLocaleString()+"+";if(p<1)requestAnimationFrame(step)})(t0)})},{threshold:.6});
+$$("[data-n]").forEach(function(el){co.observe(el)});
+$$(".tab").forEach(function(b){b.onclick=function(){$$(".tab").forEach(function(x){x.classList.toggle("on",x===b)});$$(".panel").forEach(function(p){p.hidden=p.dataset.i!==b.dataset.p})}});
+$$(".chip").forEach(function(b){b.onclick=function(){$$(".chip").forEach(function(x){x.classList.toggle("on",x===b)});$$(".news .card").forEach(function(c){c.hidden=b.dataset.f!=="all"&&c.dataset.k!==b.dataset.f})}});
+var sl=$$(".slide"),ci=0,tm;
+function show(n){ci=(n+sl.length)%sl.length;sl.forEach(function(s,i){s.classList.toggle("on",i===ci)});$("#av").textContent=sl[ci].dataset.i}
+function auto(){clearInterval(tm);tm=setInterval(function(){show(ci+1)},8000)}
+$("#nx").onclick=function(){show(ci+1);auto()};$("#pv").onclick=function(){show(ci-1);auto()};auto();
+$("#f").onsubmit=function(e){e.preventDefault();var m=$("#m"),n=$("#n").value.trim(),em=$("#e").value.trim(),s=$("#s").value;m.className="err";
+  if(!n)return m.textContent="Please enter your name.";
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))return m.textContent="Please enter a valid email address.";
+  if(!s)return m.textContent="Please choose a level of study.";
+  m.className="err ok";m.textContent="Thank you, "+n+". Our admissions team will contact you about "+s+" programmes."};
+</script>
+</body>
+</html>

@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air University Islamabad | Empowering Minds, Shaping Futures</title>
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome 6 & Lucide Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            au: {
+              bg: '#F4F7FA',
+              navy: '#1E3A5F',
+              navyDark: '#132742',
+              sky: '#3B82F6',
+              skySoft: '#EFF6FF',
+              amber: '#F59E0B',
+              amberSoft: '#FFFBEB',
+              slate: '#64748B'
+            }
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'fade-in-up': 'fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'pop-in': 'popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(16px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            popIn: {
+              '0%': { opacity: '0', transform: 'scale(0.95) translateY(8px)' },
+              '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom subtle scrollbars and glassmorphism helpers */
+    body {
+      background-color: #F4F7FA;
+      color: #1E293B;
+      overflow-x: hidden;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .soft-shadow {
+      box-shadow: 0 10px 30px -5px rgba(30, 58, 95, 0.06), 0 4px 12px -2px rgba(30, 58, 95, 0.03);
+    }
+
+    .soft-shadow-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .soft-shadow-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -8px rgba(30, 58, 95, 0.12), 0 8px 16px -4px rgba(59, 130, 246, 0.08);
+    }
+
+    /* Mega menu smooth hover reveal */
+    .nav-item:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mega-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hide scrollbar for horizontal pill filters on mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-au-navy">
+
+  <!-- ==================== 1. TOP ANNOUNCEMENT TICKER ==================== -->
+  <div class="bg-au-navy text-white text-xs sm:text-sm py-2 px-4 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 overflow-hidden">
+        <span class="inline-flex items-center gap-1.5 bg-au-amber text-au-navyDark font-bold px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wider shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-au-navyDark animate-ping"></span> Fall / Spring 2026
+        </span>
+        <p class="truncate text-slate-100 font-medium">
+          Admissions Open for Undergraduate, MS & PhD Programs across Islamabad, Kamra, Multan & Kharian Campuses!
+        </p>
+      </div>
+      <div class="hidden md:flex items-center gap-5 text-slate-200 text-xs font-medium shrink-0">
+        <button onclick="openPortalModal('Merit List Checker', 'Check your CBT / NAT Merit Position instantly using your CNIC or Roll Number.', 'merit')" class="hover:text-amber-300 transition flex items-center gap-1">
+          <i class="fa-solid fa-award text-amber-400"></i> Merit Lists
+        </button>
+        <button onclick="openPortalModal('Fee Challan Generator', 'Download or verify semester & admission processing fee vouchers.', 'challan')" class="hover:text-amber-300 transition flex items-center gap-1">
+          <i class="fa-solid fa-file-invoice-dollar text-sky-300"></i> Fee Challan
+        </button>
+        <a href="#campuses" class="hover:text-white transition flex items-center gap-1">
+          <i class="fa-solid fa-location-dot text-rose-300"></i> E-9, Islamabad
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. STICKY GLASSMORPHIC NAVIGATION ==================== -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-au-navy to-au-sky flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+            <!-- Custom SVG Crest Emblem -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-extrabold text-xl tracking-tight text-au-navy">AIR UNIVERSITY</span>
+              <span class="hidden sm:inline-block text-[10px] font-bold bg-blue-50 text-au-sky border border-blue-200 px-1.5 py-0.5 rounded-md">EST. 2002</span>
+            </div>
+            <p class="text-[11px] font-medium text-slate-500 tracking-wide">Federally Chartered Public Sector University</p>
+          </div>
+        </a>
+
+        <!-- Desktop Mega Menu Navigation -->
+        <nav class="hidden lg:flex items-center gap-1">
+          
+          <!-- Admissions Mega Dropdown -->
+          <div class="nav-item relative py-6">
+            <button class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-au-navy hover:bg-slate-100/80 flex items-center gap-1.5 transition">
+              Admissions <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+            </button>
+            <div class="mega-menu absolute left-0 top-full w-[520px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 grid grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <p class="text-xs font-bold uppercase tracking-wider text-au-sky">Apply & Eligibility</p>
+                <a href="#programs" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-au-skySoft transition group">
+                  <div class="w-9 h-9 rounded-lg bg-blue-100 text-au-sky flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-au-navy group-hover:text-au-sky">Undergraduate Programs</p>
+                    <p class="text-xs text-slate-500">BS CS, AI, Cyber Security, Engineering & BBA</p>
+                  </div>
+                </a>
+                <a href="#programs" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-au-skySoft transition group">
+                  <div class="w-9 h-9 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-microscope"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-au-navy group-hover:text-au-sky">MS & PhD Graduate</p>
+                    <p class="text-xs text-slate-500">Research degrees with HEC fellowships</p>
+                  </div>
+                </a>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-4 flex flex-col justify-between">
+                <div>
+                  <span class="text-[11px] font-bold text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full">Admissions Guide</span>
+                  <h4 class="font-bold text-au-navy text-sm mt-2">AU-CBT Entry Test 2026</h4>
+                  <p class="text-xs text-slate-500 mt-1">Computer-Based Test sample papers, NAT equivalence & merit calculator.</p>
+                </div>
+                <button onclick="openApplyModal('General Admission 2026')" class="mt-4 w-full py-2 px-3 bg-au-navy hover:bg-au-navyDark text-white text-xs font-semibold rounded-lg transition flex items-center justify-center gap-2">
+                  Start Online Application <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academics Mega Dropdown -->
+          <div class="nav-item relative py-6">
+            <button class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-au-navy hover:bg-slate-100/80 flex items-center gap-1.5 transition">
+              Academics <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+            </button>
+            <div class="mega-menu absolute left-0 top-full w-[480px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-au-sky mb-3">Faculties & Schools</p>
+              <div class="grid grid-cols-2 gap-2.5">
+                <a href="#programs" onclick="filterProgramsByCategory('Computing & AI')" class="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition">
+                  <p class="text-sm font-bold text-au-navy">Computing & AI</p>
+                  <p class="text-xs text-slate-500">CS, AI, Cyber Security, Data Science</p>
+                </a>
+                <a href="#programs" onclick="filterProgramsByCategory('Engineering')" class="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition">
+                  <p class="text-sm font-bold text-au-navy">Faculty of Engineering</p>
+                  <p class="text-xs text-slate-500">Electrical, Mechanical, Mechatronics</p>
+                </a>
+                <a href="#programs" onclick="filterProgramsByCategory('Aerospace & Avionics')" class="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition">
+                  <p class="text-sm font-bold text-au-navy">Aerospace & Avionics</p>
+                  <p class="text-xs text-slate-500">IAA, Aerospace & Aviation Sciences</p>
+                </a>
+                <a href="#programs" onclick="filterProgramsByCategory('Management Sciences')" class="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition">
+                  <p class="text-sm font-bold text-au-navy">AUSOM Business School</p>
+                  <p class="text-xs text-slate-500">BBA, FinTech, MBA & Accounting</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campuses -->
+          <a href="#campuses" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-au-navy hover:bg-slate-100/80 transition">
+            Campuses
+          </a>
+
+          <!-- Student Portals -->
+          <a href="#portals" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-au-navy hover:bg-slate-100/80 transition">
+            Portals
+          </a>
+
+          <!-- Notices & Research -->
+          <a href="#notices" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-au-navy hover:bg-slate-100/80 transition">
+            News & Research
+          </a>
+        </nav>
+
+        <!-- Action Controls: Search Trigger, Apply CTA & Mobile Menu -->
+        <div class="flex items-center gap-2.5">
+          <!-- Instant Search Trigger -->
+          <button onclick="openSearchModal()" aria-label="Search Air University" class="p-2.5 sm:px-3.5 sm:py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-slate-600 hover:text-au-navy transition flex items-center gap-2 text-sm font-medium">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="hidden xl:inline text-xs text-slate-500">Quick Search...</span>
+            <kbd class="hidden xl:inline-block text-[10px] font-semibold bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-400">Ctrl K</kbd>
+          </button>
+
+          <!-- Primary Apply CTA -->
+          <button onclick="openApplyModal('Fall / Spring 2026 Admissions')" class="px-4 sm:px-5 py-2.5 rounded-xl bg-au-navy hover:bg-au-navyDark text-white font-semibold text-sm shadow-sm hover:shadow-md transition flex items-center gap-2 active:scale-95">
+            <span>Apply Now</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-amber-400"></i>
+          </button>
+
+          <!-- Mobile Drawer Button -->
+          <button onclick="toggleMobileMenu()" aria-label="Open Navigation Menu" class="lg:hidden p-2.5 rounded-xl bg-slate-100 text-au-navy hover:bg-slate-200 transition">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="#programs" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-semibold text-au-navy hover:bg-au-skySoft">Academic Programs & Fee Finder</a>
+      <a href="#portals" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-semibold text-au-navy hover:bg-au-skySoft">Student & Faculty Portals (LMS / Challan)</a>
+      <a href="#campuses" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-semibold text-au-navy hover:bg-au-skySoft">Campuses (Islamabad, Kamra, Multan, Kharian)</a>
+      <a href="#notices" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-semibold text-au-navy hover:bg-au-skySoft">Announcements & Research Highlights</a>
+      <div class="pt-2">
+        <button onclick="toggleMobileMenu(); openApplyModal('Online Admission Portal')" class="w-full py-3 rounded-xl bg-au-sky text-white font-bold text-sm shadow">
+          Launch Admissions Portal
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 3. HERO SECTION WITH FLOATING STATS ==================== -->
+  <section class="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24">
+    <!-- Soft Ambient Background Gradients -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full bg-blue-200/40 blur-3xl"></div>
+      <div class="absolute top-40 -left-24 w-[400px] h-[400px] rounded-full bg-amber-100/60 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Column: Value Proposition & Instant Actions -->
+        <div class="lg:col-span-7 space-y-6 animate-fade-in-up">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-blue-100 shadow-sm text-xs font-semibold text-au-navy">
+            <span class="w-2 h-2 rounded-full bg-au-sky"></span>
+            <span>HEC W4 Category & PEC / NCEAC Accredited Institution</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-au-navy leading-[1.12] tracking-tight">
+            Where Innovation Takes <span class="text-transparent bg-clip-text bg-gradient-to-r from-au-sky to-blue-700">Flight</span> & Minds Lead Tomorrow.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            Discover Pakistan’s premier federally chartered university in the heart of Islamabad. Explore 65+ future-ready degrees in Artificial Intelligence, Aerospace, Engineering, Cyber Security, and Management Sciences.
+          </p>
+
+          <!-- Primary CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <button onclick="openApplyModal('Fall / Spring 2026 Intake')" class="px-6 py-3.5 rounded-2xl bg-au-navy hover:bg-au-navyDark text-white font-bold text-sm sm:text-base shadow-lg shadow-blue-900/15 hover:shadow-xl transition flex items-center gap-2.5 active:scale-95">
+              <span>Apply for 2026 Intake</span>
+              <i class="fa-solid fa-paper-plane text-amber-400"></i>
+            </button>
+
+            <a href="#programs" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-au-navy font-bold text-sm sm:text-base border border-slate-200/90 soft-shadow transition flex items-center gap-2.5">
+              <i class="fa-solid fa-compass text-au-sky"></i>
+              <span>Explore Programs</span>
+            </a>
+
+            <button onclick="openScholarshipsModal()" class="px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-600 hover:text-au-navy hover:bg-white/70 transition flex items-center gap-2">
+              <i class="fa-solid fa-hand-holding-heart text-au-amber"></i>
+              <span>Scholarships & Financial Aid</span>
+            </button>
+          </div>
+
+          <!-- Quick Trust Highlights -->
+          <div class="pt-4 grid grid-cols-3 gap-4 max-w-lg border-t border-slate-200/70">
+            <div>
+              <p class="font-display text-2xl sm:text-3xl font-extrabold text-au-navy">15,000+</p>
+              <p class="text-xs font-medium text-slate-500">Enrolled Students</p>
+            </div>
+            <div>
+              <p class="font-display text-2xl sm:text-3xl font-extrabold text-au-sky">4</p>
+              <p class="text-xs font-medium text-slate-500">National Campuses</p>
+            </div>
+            <div>
+              <p class="font-display text-2xl sm:text-3xl font-extrabold text-au-amber">94%</p>
+              <p class="text-xs font-medium text-slate-500">Graduate Employability</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Visual Interactive Campus Card + Floating Badges -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden bg-white p-3 soft-shadow border border-white">
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-au-navy via-blue-900 to-slate-800">
+              <img 
+                src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1000&q=80" 
+                onerror="this.src='https://placehold.co/800x600/1E3A5F/FFFFFF?text=Air+University+Islamabad+Campus'"
+                alt="Air University Islamabad Main Campus Architecture" 
+                class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-au-navyDark/90 via-au-navyDark/20 to-transparent"></div>
+              
+              <!-- Overlay Campus Info -->
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-[11px] uppercase tracking-wider font-bold text-amber-300">Main Campus</span>
+                    <h3 class="font-display font-bold text-lg">Sector E-9, Margalla Foothills</h3>
+                  </div>
+                  <button onclick="openVirtualTourModal()" class="w-11 h-11 rounded-full bg-white/20 hover:bg-white hover:text-au-navy backdrop-blur-md flex items-center justify-center transition shadow-lg" title="Interactive Campus Preview">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Mini Admission Status Bar inside Card -->
+            <div class="mt-3 p-3.5 rounded-2xl bg-au-bg flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-au-navy">AU-CBT Phase II Registration</p>
+                  <p class="text-[11px] text-slate-500">Closes in <span class="font-bold text-rose-600">12 Days</span> • Instant Admit Card</p>
+                </div>
+              </div>
+              <button onclick="openApplyModal('AU-CBT Entry Test Registration')" class="px-3 py-1.5 rounded-lg bg-white hover:bg-au-sky hover:text-white text-au-navy font-bold text-xs border border-slate-200 transition shrink-0">
+                Register
+              </button>
+            </div>
+          </div>
+
+          <!-- Floating Badge 1: HEC Ranking -->
+          <div class="hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 absolute -top-5 -left-6 animate-float-slow">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div>
+              <p class="text-xs font-extrabold text-au-navy">Top Ranked</p>
+              <p class="text-[11px] text-slate-500">QS Asia & Times Higher Ed</p>
+            </div>
+          </div>
+
+          <!-- Floating Badge 2: National Center for Cyber Security -->
+          <div class="hidden sm:flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 absolute -bottom-5 -right-4 animate-float-delayed">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-au-sky flex items-center justify-center text-lg">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <p class="text-xs font-extrabold text-au-navy">NCCS & AI Labs</p>
+              <p class="text-[11px] text-slate-500">National Research Hub</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. UNIFIED STUDENT & FACULTY QUICK-LAUNCH HUB ==================== -->
+  <section id="portals" class="py-12 bg-white border-y border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-au-sky">One-Click Digital Ecosystem</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-au-navy mt-1">Student & Faculty Quick-Launch Hub</h2>
+        </div>
+        <p class="text-sm text-slate-500 max-w-md">
+          No more dead links or confusing sub-domains. Launch or preview any university portal directly from one unified dashboard.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <!-- Portal Card 1: LMS / GCR -->
+        <button onclick="openPortalModal('AU Learning Management System (LMS)', 'Access course materials, submit assignments, view attendance, and join Google Classroom integrations.', 'lms')" class="text-left p-5 rounded-2xl bg-au-bg hover:bg-white border border-slate-200/80 soft-shadow-hover group">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-au-sky group-hover:bg-au-sky group-hover:text-white transition flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="font-bold text-au-navy text-base flex items-center justify-between">
+            AU LMS & GCR
+            <i class="fa-solid fa-arrow-right text-xs text-slate-400 group-hover:text-au-sky group-hover:translate-x-1 transition"></i>
+          </h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Lecture notes, quizzes, online submissions & faculty announcements.</p>
+        </button>
+
+        <!-- Portal Card 2: Student Portal -->
+        <button onclick="openPortalModal('Student Academic Portal (CMS)', 'View semester GPA/CGPA transcripts, course registration, timetable, and exam date sheets.', 'student')" class="text-left p-5 rounded-2xl bg-au-bg hover:bg-white border border-slate-200/80 soft-shadow-hover group">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-id-card-clip"></i>
+          </div>
+          <h3 class="font-bold text-au-navy text-base flex items-center justify-between">
+            Student Portal
+            <i class="fa-solid fa-arrow-right text-xs text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition"></i>
+          </h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Attendance tracking, transcript grades, course enrollment & advisories.</p>
+        </button>
+
+        <!-- Portal Card 3: Fee Challan Generator -->
+        <button onclick="openPortalModal('Instant Fee Challan Generator', 'Generate and download semester tuition, transport, or admission fee vouchers with 1-Link ID.', 'challan')" class="text-left p-5 rounded-2xl bg-au-bg hover:bg-white border border-slate-200/80 soft-shadow-hover group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 group-hover:bg-au-amber group-hover:text-white transition flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <h3 class="font-bold text-au-navy text-base flex items-center justify-between">
+            Fee Challan
+            <i class="fa-solid fa-arrow-right text-xs text-slate-400 group-hover:text-amber-600 group-hover:translate-x-1 transition"></i>
+          </h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">1-Bill / KuickPay voucher download & installment plan status.</p>
+        </button>
+
+        <!-- Portal Card 4: Merit List Checker -->
+        <button onclick="openPortalModal('Merit List & Result Checker', 'Enter your Candidate Roll No. or CNIC to view your merit aggregate and offer letter.', 'merit')" class="text-left p-5 rounded-2xl bg-au-bg hover:bg-white border border-slate-200/80 soft-shadow-hover group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h3 class="font-bold text-au-navy text-base flex items-center justify-between">
+            Merit Checker
+            <i class="fa-solid fa-arrow-right text-xs text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition"></i>
+          </h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">Check AU-CBT test scores, merit list standing & provisional offer letters.</p>
+        </button>
+
+        <!-- Portal Card 5: Digital Library -->
+        <button onclick="openPortalModal('AU Digital Library & HEC Repository', 'Search 85,000+ e-books, IEEE Xplore, ACM Digital Library, and Air University research theses.', 'library')" class="text-left p-5 rounded-2xl bg-au-bg hover:bg-white border border-slate-200/80 soft-shadow-hover group">
+          <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <h3 class="font-bold text-au-navy text-base flex items-center justify-between">
+            Digital Library
+            <i class="fa-solid fa-arrow-right text-xs text-slate-400 group-hover:text-rose-600 group-hover:translate-x-1 transition"></i>
+          </h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">OPAC catalog, IEEE/Springer journals & past examination archives.</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. INTERACTIVE PROGRAM FINDER & CATALOG ==================== -->
+  <section id="programs" class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header + Search Input -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-au-sky">Academic Excellence</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-au-navy mt-1">Interactive Program Finder</h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
+            Filter degrees by faculty or search by keyword. Click any program card to inspect eligibility criteria, credit hours, and semester fee breakdowns.
+          </p>
+        </div>
+
+        <!-- Live Program Search Bar -->
+        <div class="relative w-full lg:w-80">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+          <input 
+            type="text" 
+            id="programSearchInput" 
+            oninput="filterPrograms()"
+            placeholder="Search e.g. AI, Cyber, Aerospace, BBA..." 
+            class="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-au-sky/40 focus:border-au-sky soft-shadow"
+          />
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div id="categoryPills" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 mb-6">
+        <button onclick="setProgramCategory('All')" data-cat="All" class="cat-pill active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-au-navy text-white shadow-sm transition shrink-0">
+          All Faculties (12)
+        </button>
+        <button onclick="setProgramCategory('Computing & AI')" data-cat="Computing & AI" class="cat-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 transition shrink-0">
+          Computing & AI
+        </button>
+        <button onclick="setProgramCategory('Engineering')" data-cat="Engineering" class="cat-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 transition shrink-0">
+          Engineering
+        </button>
+        <button onclick="setProgramCategory('Aerospace & Avionics')" data-cat="Aerospace & Avionics" class="cat-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 transition shrink-0">
+          Aerospace & Avionics
+        </button>
+        <button onclick="setProgramCategory('Management Sciences')" data-cat="Management Sciences" class="cat-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 transition shrink-0">
+          Management Sciences
+        </button>
+        <button onclick="setProgramCategory('Basic & Applied Sciences')" data-cat="Basic & Applied Sciences" class="cat-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 transition shrink-0">
+          Basic & Applied Sciences
+        </button>
+      </div>
+
+      <!-- Dynamic Programs Grid -->
+      <div id="programsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Populated dynamically via JavaScript -->
+      </div>
+
+      <!-- Empty Search State -->
+      <div id="noProgramsFound" class="hidden text-center py-14 bg-white rounded-3xl border border-slate-200/80">
+        <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto text-2xl mb-3">
+          <i class="fa-solid fa-folder-open"></i>
+        </div>
+        <h3 class="font-bold text-au-navy text-lg">No matching programs found</h3>
+        <p class="text-sm text-slate-500 mt-1">Try adjusting your search term or reset the faculty filter.</p>
+        <button onclick="resetProgramFilters()" class="mt-4 px-5 py-2 rounded-xl bg-au-sky text-white text-xs font-bold hover:bg-blue-600 transition">
+          Reset All Filters
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. INTERACTIVE CAMPUS EXPLORER ==================== -->
+  <section id="campuses" class="py-16 bg-white border-y border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-au-sky">National Footprint</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-au-navy mt-1">Explore Our 4 Campuses</h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2">
+          Purpose-built academic environments equipped with state-of-the-art laboratories, digital libraries, and student hostels across Pakistan.
+        </p>
+      </div>
+
+      <!-- Campus Selector Tabs -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-8" id="campusTabs">
+        <button onclick="selectCampus('islamabad')" data-campus="islamabad" class="campus-tab active px-5 py-3 rounded-2xl text-sm font-bold bg-au-navy text-white shadow-md transition flex items-center gap-2">
+          <i class="fa-solid fa-landmark"></i> Islamabad Main Campus
+        </button>
+        <button onclick="selectCampus('kamra')" data-campus="kamra" class="campus-tab px-5 py-3 rounded-2xl text-sm font-semibold bg-au-bg text-slate-600 hover:bg-slate-200/70 transition flex items-center gap-2">
+          <i class="fa-solid fa-jet-fighter"></i> Aerospace & Aviation (Kamra)
+        </button>
+        <button onclick="selectCampus('multan')" data-campus="multan" class="campus-tab px-5 py-3 rounded-2xl text-sm font-semibold bg-au-bg text-slate-600 hover:bg-slate-200/70 transition flex items-center gap-2">
+          <i class="fa-solid fa-building-columns"></i> Multan Campus
+        </button>
+        <button onclick="selectCampus('kharian')" data-campus="kharian" class="campus-tab px-5 py-3 rounded-2xl text-sm font-semibold bg-au-bg text-slate-600 hover:bg-slate-200/70 transition flex items-center gap-2">
+          <i class="fa-solid fa-tree-city"></i> Kharian Campus
+        </button>
+      </div>
+
+      <!-- Campus Display Card -->
+      <div id="campusDisplay" class="bg-au-bg rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/80 soft-shadow transition-all">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. LATEST ANNOUNCEMENTS, EVENTS & RESEARCH ==================== -->
+  <section id="notices" class="py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-au-sky">Campus Pulse</span>
+          <h2 class="font-display text-3xl font-extrabold text-au-navy mt-1">Announcements, Events & Research</h2>
+        </div>
+
+        <!-- Notice Category Tabs -->
+        <div class="flex items-center gap-2 bg-white p-1.5 rounded-2xl border border-slate-200/80 self-start">
+          <button onclick="filterNotices('All')" data-notice="All" class="notice-tab active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-au-navy text-white transition">All</button>
+          <button onclick="filterNotices('Admissions')" data-notice="Admissions" class="notice-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-au-navy transition">Admissions</button>
+          <button onclick="filterNotices('Research')" data-notice="Research" class="notice-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-au-navy transition">Research</button>
+          <button onclick="filterNotices('Events')" data-notice="Events" class="notice-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-au-navy transition">Events</button>
+        </div>
+      </div>
+
+      <!-- Notices Grid -->
+      <div id="noticesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8. MODERN RESPONSIVE FOOTER ==================== -->
+  <footer class="bg-au-navyDark text-slate-300 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Brand & Address -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-au-sky flex items-center justify-center text-white font-bold">
+              AU
+            </div>
+            <div>
+              <h3 class="font-display font-extrabold text-white text-lg">AIR UNIVERSITY</h3>
+              <p class="text-xs text-slate-400">Islamabad • Kamra • Multan • Kharian</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Committed to excellence in teaching, applied research, and innovation to nurture ethical leaders and technologists for Pakistan and the global community.
+          </p>
+          <div class="space-y-2 text-xs text-slate-300 pt-1">
+            <p class="flex items-center gap-2.5"><i class="fa-solid fa-location-dot text-au-amber w-4"></i> PAF Complex, Sector E-9, Islamabad, Pakistan</p>
+            <p class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-au-sky w-4"></i> +92-51-9262557-9 | Admissions Ext: 204, 309</p>
+            <p class="flex items-center gap-2.5"><i class="fa-solid fa-envelope text-emerald-400 w-4"></i> admissions@mail.au.edu.pk</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider">Admissions</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="#programs" class="hover:text-white transition">Undergraduate Programs</a></li>
+            <li><a href="#programs" class="hover:text-white transition">MS & PhD Admissions</a></li>
+            <li><button onclick="openScholarshipsModal()" class="hover:text-white transition">Need & Merit Scholarships</button></li>
+            <li><button onclick="openPortalModal('Fee Structure & Calculator', 'View per-credit-hour tuition breakdown for Engineering, Computing & Business programs.', 'challan')" class="hover:text-white transition">Fee Structure 2026</button></li>
+            <li><button onclick="openPortalModal('Merit List Checker', 'Verify AU-CBT & NAT merit lists.', 'merit')" class="hover:text-white transition">Merit Lists</button></li>
+          </ul>
+        </div>
+
+        <!-- University Links -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider">Portals</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><button onclick="openPortalModal('AU LMS Portal', 'Log in to Learning Management System.', 'lms')" class="hover:text-white transition">AU LMS / GCR</button></li>
+            <li><button onclick="openPortalModal('Student CMS Portal', 'Access attendance, results & courses.', 'student')" class="hover:text-white transition">Student Portal</button></li>
+            <li><button onclick="openPortalModal('Digital Library', 'Search IEEE, HEC & OPAC books.', 'library')" class="hover:text-white transition">Digital Library</button></li>
+            <li><a href="#campuses" class="hover:text-white transition">ORIC & Research</a></li>
+            <li><a href="#campuses" class="hover:text-white transition">QEC Quality Assurance</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Alerts -->
+        <div class="lg:col-span-4 space-y-4">
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider">Admission & Event Alerts</h4>
+          <p class="text-sm text-slate-400">
+            Get instant notifications for AU-CBT test dates, merit list announcements, and scholarship deadlines.
+          </p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="flex gap-2">
+            <input 
+              type="email" 
+              id="newsletterEmail"
+              required
+              placeholder="Enter your email address..." 
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white text-sm placeholder-slate-400 focus:outline-none focus:border-au-sky"
+            />
+            <button type="submit" class="px-4 py-2.5 rounded-xl bg-au-sky hover:bg-blue-600 text-white font-bold text-sm transition shrink-0">
+              Subscribe
+            </button>
+          </form>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-au-sky text-white flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-au-sky text-white flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="X Twitter" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-au-sky text-white flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-rose-600 text-white flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <p>© 2026 Air University Islamabad. All Rights Reserved. Designed for Modern Academic Accessibility.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">HEC Accreditation</a>
+          <a href="#campuses" class="hover:text-white transition">Campus Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== 9. FLOATING ADMISSION HELPDESK / VIRTUAL ADVISOR ==================== -->
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <!-- Chat Pop-up Window -->
+    <div id="advisorBox" class="hidden mb-3 w-[340px] sm:w-[370px] bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden animate-pop-in">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-au-navy to-au-sky p-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg relative">
+            <i class="fa-solid fa-headset"></i>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-au-navy absolute -bottom-0.5 -right-0.5"></span>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm">AU Virtual Admission Advisor</h4>
+            <p class="text-[11px] text-blue-100">Instant answers on eligibility, fees & tests</p>
+          </div>
+        </div>
+        <button onclick="toggleAdvisor()" class="w-8 h-8 rounded-xl hover:bg-white/15 flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Messages Body -->
+      <div id="advisorMessages" class="p-4 h-64 overflow-y-auto space-y-3 bg-au-bg text-xs sm:text-sm">
+        <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 text-slate-700">
+          Assalam-o-Alaikum! 👋 Welcome to <strong>Air University</strong>. How can I assist you with Admissions 2026 today?
+        </div>
+      </div>
+
+      <!-- Quick Prompt Chips -->
+      <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto no-scrollbar">
+        <button onclick="askAdvisor('What is the eligibility for BS CS & AI?')" class="px-2.5 py-1 rounded-full bg-blue-50 hover:bg-blue-100 text-au-sky font-semibold text-[11px] shrink-0 transition">
+          BS CS / AI Eligibility
+        </button>
+        <button onclick="askAdvisor('Do you accept NAT or AU-CBT?')" class="px-2.5 py-1 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-700 font-semibold text-[11px] shrink-0 transition">
+          NAT vs AU-CBT
+        </button>
+        <button onclick="askAdvisor('What scholarships are available?')" class="px-2.5 py-1 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold text-[11px] shrink-0 transition">
+          Scholarships
+        </button>
+      </div>
+
+      <!-- Input Form -->
+      <form onsubmit="handleAdvisorSubmit(event)" class="p-3 bg-white border-t border-slate-100 flex items-center gap-2">
+        <input 
+          type="text" 
+          id="advisorInput"
+          placeholder="Ask about fee, merit, hostel..." 
+          class="w-full px-3.5 py-2 rounded-xl bg-slate-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-au-sky/40"
+        />
+        <button type="submit" class="w-9 h-9 rounded-xl bg-au-navy hover:bg-au-sky text-white flex items-center justify-center transition shrink-0">
+          <i class="fa-solid fa-paper-plane text-xs"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- Floating Trigger Button -->
+    <button onclick="toggleAdvisor()" class="group flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-au-navy hover:bg-au-navyDark text-white shadow-xl shadow-blue-900/25 transition-all hover:scale-105 active:scale-95">
+      <span class="w-8 h-8 rounded-full bg-au-sky flex items-center justify-center text-sm">
+        <i class="fa-solid fa-comments"></i>
+      </span>
+      <span class="font-bold text-xs sm:text-sm pr-1">Admission Helpdesk</span>
+    </button>
+  </div>
+
+  <!-- ==================== 10. INTERACTIVE MODALS SYSTEM ==================== -->
+
+  <!-- Modal Backdrop Wrapper -->
+  <div id="modalBackdrop" onclick="closeAllModals(event)" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    
+    <!-- A. PROGRAM DETAILS MODAL -->
+    <div id="programModal" class="hidden w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-pop-in" onclick="event.stopPropagation()">
+      <div class="bg-gradient-to-r from-au-navy to-blue-900 p-6 text-white flex items-start justify-between gap-4">
+        <div>
+          <span id="pmFacultyBadge" class="inline-block px-2.5 py-0.5 rounded-full bg-white/15 text-amber-300 text-xs font-bold mb-2">Computing & AI</span>
+          <h3 id="pmTitle" class="font-display text-2xl font-extrabold">BS Artificial Intelligence</h3>
+          <p id="pmMeta" class="text-xs text-blue-100 mt-1">4 Years (8 Semesters) • 134 Credit Hours • Morning / Evening</p>
+        </div>
+        <button onclick="closeAllModals()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition shrink-0">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5">
+        <p id="pmDescription" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-2xl bg-au-bg border border-slate-200/70">
+            <p class="text-[11px] font-bold uppercase text-slate-400">Est. 1st Semester Fee</p>
+            <p id="pmFee" class="font-display font-extrabold text-lg text-au-navy mt-0.5">PKR 118,500</p>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-au-bg border border-slate-200/70">
+            <p class="text-[11px] font-bold uppercase text-slate-400">Entry Test</p>
+            <p id="pmTest" class="font-display font-extrabold text-sm text-au-sky mt-1">AU-CBT or NAT-IE / ICS</p>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-au-bg border border-slate-200/70">
+            <p class="text-[11px] font-bold uppercase text-slate-400">Available Campuses</p>
+            <p id="pmCampuses" class="font-bold text-xs text-slate-700 mt-1">Islamabad, Multan</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50/70 rounded-2xl p-4 border border-blue-100">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-au-navy flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-au-sky"></i> Eligibility Criteria
+          </h4>
+          <p id="pmEligibility" class="text-xs sm:text-sm text-slate-700 mt-1.5 leading-relaxed"></p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-end gap-3 pt-2">
+          <button onclick="closeAllModals()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition">
+            Close
+          </button>
+          <button id="pmApplyBtn" class="px-6 py-2.5 rounded-xl bg-au-navy hover:bg-au-navyDark text-white font-bold text-sm shadow-md transition flex items-center gap-2">
+            <span>Apply for This Program</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- B. ADMISSIONS APPLICATION MODAL -->
+    <div id="applyModal" class="hidden w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-pop-in" onclick="event.stopPropagation()">
+      <div class="bg-au-navy p-6 text-white flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Online Admission Portal</span>
+          <h3 id="applyModalTitle" class="font-display text-xl font-extrabold mt-0.5">Fall / Spring 2026 Application</h3>
+        </div>
+        <button onclick="closeAllModals()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="submitApplicationForm(event)" class="p-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Full Name (as per Matric / CNIC)</label>
+          <input type="text" required placeholder="e.g. Muhammad Ahmed Khan" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">CNIC / B-Form Number</label>
+            <input type="text" required placeholder="37405-1234567-1" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Number</label>
+            <input type="tel" required placeholder="0300-1234567" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Preferred Campus</label>
+            <select class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky">
+              <option>Islamabad Main Campus (E-9)</option>
+              <option>Aerospace & Aviation Campus Kamra</option>
+              <option>Multan Campus</option>
+              <option>Kharian Campus</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Degree Program</label>
+            <select id="applyProgramSelect" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky">
+              <option>BS Computer Science</option>
+              <option>BS Artificial Intelligence</option>
+              <option>BS Cyber Security</option>
+              <option>BE Aerospace Engineering</option>
+              <option>BE Electrical Engineering</option>
+              <option>BS Business Administration (BBA)</option>
+              <option>MS Data Science</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-amber-50 border border-amber-200/80 text-xs text-amber-800 flex items-center gap-2.5">
+          <i class="fa-solid fa-bolt text-amber-500"></i>
+          <span>Instant Challan & AU-CBT Test Slot selection available immediately after creating your profile.</span>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-au-sky hover:bg-blue-600 text-white font-bold text-sm shadow-lg transition">
+          Create Candidate Account & Generate Tracking ID
+        </button>
+      </form>
+    </div>
+
+    <!-- C. UNIFIED PORTAL PREVIEW / QUICK ACTION MODAL -->
+    <div id="portalModal" class="hidden w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-pop-in" onclick="event.stopPropagation()">
+      <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-au-sky flex items-center justify-center">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h3 id="portalModalTitle" class="font-display font-bold text-au-navy text-lg">Student Portal</h3>
+            <p class="text-xs text-slate-400">Single Sign-On (SSO) Gateway</p>
+          </div>
+        </div>
+        <button onclick="closeAllModals()" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <p id="portalModalDesc" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <!-- Dynamic interactive mini tool inside Portal Modal -->
+        <div id="portalDynamicArea" class="space-y-3"></div>
+      </div>
+    </div>
+
+    <!-- D. NOTICE / ANNOUNCEMENT READER MODAL -->
+    <div id="noticeModal" class="hidden w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-pop-in" onclick="event.stopPropagation()">
+      <div class="p-6 bg-au-bg border-b border-slate-200/80 flex items-start justify-between gap-4">
+        <div>
+          <span id="nmCategory" class="inline-block px-2.5 py-0.5 rounded-full bg-blue-100 text-au-sky text-xs font-bold mb-2">Admissions</span>
+          <h3 id="nmTitle" class="font-display text-xl font-extrabold text-au-navy"></h3>
+          <p id="nmDate" class="text-xs text-slate-500 mt-1"></p>
+        </div>
+        <button onclick="closeAllModals()" class="w-9 h-9 rounded-xl bg-white hover:bg-slate-200 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-4">
+        <p id="nmBody" class="text-sm text-slate-700 leading-relaxed whitespace-pre-line"></p>
+        <div class="pt-2 flex justify-end gap-2">
+          <button onclick="closeAllModals()" class="px-5 py-2 rounded-xl bg-au-navy text-white text-xs font-bold">Done Reading</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- E. GLOBAL INSTANT SEARCH MODAL (Ctrl+K) -->
+    <div id="searchModal" class="hidden w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden animate-pop-in" onclick="event.stopPropagation()">
+      <div class="p-4 border-b border-slate-100 flex items-center gap-3">
+        <i class="fa-solid fa-magnifying-glass text-au-sky text-lg pl-2"></i>
+        <input 
+          type="text" 
+          id="globalSearchInput" 
+          oninput="runGlobalSearch(this.value)"
+          placeholder="Search degrees, fee challan, merit lists, campuses..." 
+          class="w-full py-2 text-sm sm:text-base focus:outline-none text-au-navy"
+        />
+        <button onclick="closeAllModals()" class="px-2.5 py-1 rounded-lg bg-slate-100 text-xs font-bold text-slate-500">ESC</button>
+      </div>
+      <div id="globalSearchResults" class="p-4 max-h-80 overflow-y-auto space-y-2">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 px-2">Popular Searches</p>
+        <button onclick="closeAllModals(); openProgramModalById('bs-ai')" class="w-full text-left p-3 rounded-xl hover:bg-au-skySoft flex items-center justify-between transition">
+          <span class="text-sm font-semibold text-au-navy">BS Artificial Intelligence (Eligibility & Fee)</span>
+          <span class="text-xs text-au-sky font-bold">Program →</span>
+        </button>
+        <button onclick="closeAllModals(); openPortalModal('Fee Challan Generator', 'Download or verify semester & admission fee vouchers.', 'challan')" class="w-full text-left p-3 rounded-xl hover:bg-au-skySoft flex items-center justify-between transition">
+          <span class="text-sm font-semibold text-au-navy">Generate Semester / Admission Fee Challan</span>
+          <span class="text-xs text-amber-600 font-bold">Portal →</span>
+        </button>
+        <button onclick="closeAllModals(); openPortalModal('Merit List Checker', 'Check AU-CBT & NAT merit position.', 'merit')" class="w-full text-left p-3 rounded-xl hover:bg-au-skySoft flex items-center justify-between transition">
+          <span class="text-sm font-semibold text-au-navy">AU-CBT Merit List & Result Verification</span>
+          <span class="text-xs text-emerald-600 font-bold">Result →</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== 11. TOAST NOTIFICATION CONTAINER ==================== -->
+  <div id="toastContainer" class="fixed top-24 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- ==================== JAVASCRIPT APPLICATION LOGIC ==================== -->
+  <script>
+    // ---------- DATASET: ACADEMIC PROGRAMS ----------
+    const programsData = [
+      {
+        id: 'bs-cs',
+        title: 'BS Computer Science',
+        faculty: 'Computing & AI',
+        duration: '4 Years (8 Semesters)',
+        credits: '134 Credit Hours',
+        fee: 'PKR 118,500 / Sem',
+        test: 'AU-CBT or NAT-IE / ICS',
+        campuses: 'Islamabad, Multan, Kamra, Kharian',
+        badge: 'NCEAC Accredited',
+        description: 'Comprehensive foundation in algorithms, software architecture, cloud computing, and full-stack systems engineering tailored for global tech careers.',
+        eligibility: 'Minimum 50% marks in HSSC (Pre-Engineering / ICS / Pre-Medical with additional Maths) or equivalent A-Levels.'
+      },
+      {
+        id: 'bs-ai',
+        title: 'BS Artificial Intelligence',
+        faculty: 'Computing & AI',
+        duration: '4 Years (8 Semesters)',
+        credits: '134 Credit Hours',
+        fee: 'PKR 122,000 / Sem',
+        test: 'AU-CBT or NAT-IE / ICS',
+        campuses: 'Islamabad, Multan',
+        badge: 'High Demand',
+        description: 'Specialized degree in deep learning, computer vision, natural language processing, and autonomous intelligent agents backed by dedicated GPU labs.',
+        eligibility: 'Minimum 50% marks in FSc / ICS / A-Levels with Mathematics.'
+      },
+      {
+        id: 'bs-cys',
+        title: 'BS Cyber Security',
+        faculty: 'Computing & AI',
+        duration: '4 Years (8 Semesters)',
+        credits: '134 Credit Hours',
+        fee: 'PKR 122,000 / Sem',
+        test: 'AU-CBT or NAT-IE / ICS',
+        campuses: 'Islamabad',
+        badge: 'NCCS Flagship',
+        description: 'Hosted alongside the National Center for Cyber Security (NCCS), focusing on digital forensics, ethical hacking, cryptography, and network defense.',
+        eligibility: 'Minimum 50% marks in HSSC (Pre-Engineering / ICS) or equivalent.'
+      },
+      {
+        id: 'be-aero',
+        title: 'BE Aerospace Engineering',
+        faculty: 'Aerospace & Avionics',
+        duration: '4 Years (8 Semesters)',
+        credits: '136 Credit Hours',
+        fee: 'PKR 128,000 / Sem',
+        test: 'AU-CBT Engineering / ECAT / NAT-IE',
+        campuses: 'Kamra (IAA), Islamabad',
+        badge: 'PEC Level-II',
+        description: 'Design, aerodynamics, propulsion, and flight mechanics with direct industry exposure at the Institute of Avionics & Aeronautics (IAA) and PAC Kamra.',
+        eligibility: 'Minimum 60% marks in FSc Pre-Engineering (Physics, Chemistry, Mathematics) or equivalent.'
+      },
+      {
+        id: 'be-ee',
+        title: 'BE Electrical Engineering',
+        faculty: 'Engineering',
+        duration: '4 Years (8 Semesters)',
+        credits: '136 Credit Hours',
+        fee: 'PKR 124,000 / Sem',
+        test: 'AU-CBT Engineering / ECAT / NAT-IE',
+        campuses: 'Islamabad, Kamra',
+        badge: 'PEC Accredited',
+        description: 'Specializations in Power Systems, Embedded Electronics, RF/Microwave Communications, and Smart Grid Technologies.',
+        eligibility: 'Minimum 60% marks in FSc Pre-Engineering or DAE in relevant technology.'
+      },
+      {
+        id: 'be-mech',
+        title: 'BE Mechatronics Engineering',
+        faculty: 'Engineering',
+        duration: '4 Years (8 Semesters)',
+        credits: '136 Credit Hours',
+        fee: 'PKR 124,000 / Sem',
+        test: 'AU-CBT Engineering / ECAT / NAT-IE',
+        campuses: 'Islamabad',
+        badge: 'Robotics Lab',
+        description: 'Synergistic integration of precision mechanical engineering, control theory, robotics, and industrial automation.',
+        eligibility: 'Minimum 60% marks in FSc Pre-Engineering or equivalent.'
+      },
+      {
+        id: 'bba',
+        title: 'BS Business Administration (BBA)',
+        faculty: 'Management Sciences',
+        duration: '4 Years (8 Semesters)',
+        credits: '132 Credit Hours',
+        fee: 'PKR 104,000 / Sem',
+        test: 'AU-CBT Management / NAT-IM / IE',
+        campuses: 'Islamabad, Multan, Kharian',
+        badge: 'NBEAC Accredited',
+        description: 'Modern business leadership program at Air University School of Management (AUSOM) with tracks in FinTech, Supply Chain, and Digital Marketing.',
+        eligibility: 'Minimum 50% marks in Intermediate (FA / FSc / I.Com / ICS) or A-Levels.'
+      },
+      {
+        id: 'bs-fintech',
+        title: 'BS Financial Technologies (FinTech)',
+        faculty: 'Management Sciences',
+        duration: '4 Years (8 Semesters)',
+        credits: '132 Credit Hours',
+        fee: 'PKR 108,000 / Sem',
+        test: 'AU-CBT Management / NAT',
+        campuses: 'Islamabad',
+        badge: 'New 2026',
+        description: 'Bridging quantitative finance, blockchain ecosystems, algorithmic trading, and digital banking analytics.',
+        eligibility: 'Minimum 50% marks in HSSC or equivalent qualification.'
+      },
+      {
+        id: 'bs-aviation',
+        title: 'BS Aviation Management',
+        faculty: 'Aerospace & Avionics',
+        duration: '4 Years (8 Semesters)',
+        credits: '130 Credit Hours',
+        fee: 'PKR 110,000 / Sem',
+        test: 'AU-CBT / NAT',
+        campuses: 'Islamabad, Kamra',
+        badge: 'CAA Aligned',
+        description: 'Airline operations, airport logistics, aviation safety management systems (SMS), and air transport economics.',
+        eligibility: 'Minimum 50% marks in Intermediate or equivalent.'
+      },
+      {
+        id: 'bs-physics',
+        title: 'BS Physics (Quantum & Materials)',
+        faculty: 'Basic & Applied Sciences',
+        duration: '4 Years (8 Semesters)',
+        credits: '132 Credit Hours',
+        fee: 'PKR 92,000 / Sem',
+        test: 'AU-CBT / NAT',
+        campuses: 'Islamabad',
+        badge: 'Research Track',
+        description: 'Experimental and theoretical physics focusing on nanotechnology, photonics, and computational modeling.',
+        eligibility: 'Minimum 50% marks in FSc Pre-Engineering or ICS with Physics & Maths.'
+      },
+      {
+        id: 'bs-math',
+        title: 'BS Mathematics & Data Analytics',
+        faculty: 'Basic & Applied Sciences',
+        duration: '4 Years (8 Semesters)',
+        credits: '130 Credit Hours',
+        fee: 'PKR 90,000 / Sem',
+        test: 'AU-CBT / NAT',
+        campuses: 'Islamabad, Multan',
+        badge: 'Merit Aid',
+        description: 'Applied mathematical modeling, statistical inference, and optimization algorithms for industry and scientific computing.',
+        eligibility: 'Minimum 50% marks in HSSC with Mathematics.'
+      },
+      {
+        id: 'ms-ds',
+        title: 'MS Data Science & Machine Learning',
+        faculty: 'Computing & AI',
+        duration: '2 Years (4 Semesters)',
+        credits: '30 Credit Hours',
+        fee: 'PKR 96,000 / Sem',
+        test: 'AU-GAT / NTS GAT-General (Min 50%)',
+        campuses: 'Islamabad',
+        badge: 'Evening / Weekend',
+        description: 'Graduate research program in big data pipelines, statistical learning, and enterprise AI deployment.',
+        eligibility: '16 years of education (BS CS / SE / IT / Engineering / Maths) with minimum 2.00/4.00 CGPA.'
+      }
+    ];
+
+    // ---------- DATASET: CAMPUSES ----------
+    const campusesData = {
+      islamabad: {
+        name: 'Islamabad Main Campus (Sector E-9)',
+        tagline: 'Flagship Campus nestled at the scenic foothills of the Margalla Hills',
+        students: '10,500+ Students',
+        faculties: '6 Faculties & 22 Departments',
+        highlights: ['National Center for Cyber Security (NCCS)', 'Central Digital Library & Auditorium', 'Dedicated On-Campus Hostels & Sports Complex', 'Metro & Capital-wide Transport Fleet'],
+        image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1000&q=80',
+        fallback: 'https://placehold.co/800x500/1E3A5F/FFFFFF?text=Islamabad+Main+Campus'
+      },
+      kamra: {
+        name: 'Aerospace & Aviation Campus, Kamra',
+        tagline: 'Co-located with Pakistan Aeronautical Complex (PAC) for unmatched industry synergy',
+        students: '2,200+ Students',
+        faculties: 'Aerospace, Avionics & Computing',
+        highlights: ['Subsonic Wind Tunnel & Propulsion Labs', 'Flight Simulation & Avionics Testing Suites', 'Direct Internships at Aviation Industries', 'Purpose-Built Residential Campus'],
+        image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1000&q=80',
+        fallback: 'https://placehold.co/800x500/1E3A5F/FFFFFF?text=Aerospace+Campus+Kamra'
+      },
+      multan: {
+        name: 'Air University Multan Campus',
+        tagline: 'Serving Southern Punjab with premier Computing, Management & Sciences education',
+        students: '1,800+ Students',
+        faculties: 'Computing, Management & Basic Sciences',
+        highlights: ['High-Speed Computing & AI Research Labs', 'AUSOM Business Incubation Center', 'Modern Seminar Halls & Student Societies', 'Scholarships for Southern Punjab Merit'],
+        image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80',
+        fallback: 'https://placehold.co/800x500/1E3A5F/FFFFFF?text=Multan+Campus'
+      },
+      kharian: {
+        name: 'Air University Kharian Campus',
+        tagline: 'Expanding quality higher education in Central Punjab with modern academic blocks',
+        students: '950+ Students',
+        faculties: 'Computer Science, IT & Management',
+        highlights: ['Smart Classrooms & IoT Labs', 'Vibrant Co-Curricular & Sports Facilities', 'Dedicated Transport for Gujrat, Jhelum & Lalamusa', 'Low Student-to-Faculty Ratio'],
+        image: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1000&q=80',
+        fallback: 'https://placehold.co/800x500/1E3A5F/FFFFFF?text=Kharian+Campus'
+      }
+    };
+
+    // ---------- DATASET: NOTICES & RESEARCH ----------
+    const noticesData = [
+      {
+        id: 1,
+        category: 'Admissions',
+        date: 'November 20, 2026',
+        title: 'Schedule for AU-CBT Phase-II Entry Test & Admit Card Download',
+        summary: 'Candidates applying for BS Computing, Engineering, and Management programs can now select their preferred test date and print admit cards.',
+        fullText: 'All applicants for the 2026 Undergraduate & Graduate intake are informed that the Computer-Based Test (AU-CBT) Phase-II will be conducted at Islamabad, Kamra, Multan, and Kharian test centers.\n\n1. Log in to your Admission Portal using your Tracking ID.\n2. Select an available morning or afternoon test slot.\n3. Bring your printed Admit Card along with original CNIC / B-Form on test day.\n\nNote: Valid NTS NAT / HEC USAT scores are also accepted in lieu of AU-CBT.'
+      },
+      {
+        id: 2,
+        category: 'Research',
+        date: 'November 16, 2026',
+        title: 'AU Cyber Security & AI Lab Wins National Innovation Grant',
+        summary: 'Faculty and undergraduate researchers at NCCS Islamabad secured PKR 45M funding for Indigenous Quantum-Safe Encryption protocols.',
+        fullText: 'The National Center for Cyber Security (NCCS) at Air University Islamabad has been awarded a prestigious national research grant to develop post-quantum cryptographic modules for critical national infrastructure.\n\nUndergraduate final-year students from BS Cyber Security and BS Artificial Intelligence will be recruited as paid Research Assistants starting next month.'
+      },
+      {
+        id: 3,
+        category: 'Events',
+        date: 'November 12, 2026',
+        title: 'AirTech ’26: Annual National Olympiad & Tech Job Fair',
+        summary: 'Over 65 leading software houses, aerospace firms, and fintech startups are visiting E-9 Campus for on-spot graduate recruitment.',
+        fullText: 'Air University is hosting AirTech ’26, featuring competitive programming, robotics battles, aero-modeling exhibitions, and an industry-academia Career Fair.\n\nGraduating seniors and alumni are encouraged to bring updated resumes for on-campus interviews with top national and international employers.'
+      }
+    ];
+
+    // ---------- STATE VARIABLES ----------
+    let currentCategory = 'All';
+    let currentNoticeCategory = 'All';
+
+    // ---------- RENDER PROGRAMS ----------
+    function renderPrograms() {
+      const grid = document.getElementById('programsGrid');
+      const emptyState = document.getElementById('noProgramsFound');
+      const query = document.getElementById('programSearchInput').value.trim().toLowerCase();
+
+      const filtered = programsData.filter(prog => {
+        const matchesCat = currentCategory === 'All' || prog.faculty === currentCategory;
+        const matchesSearch = !query || 
+          prog.title.toLowerCase().includes(query) || 
+          prog.faculty.toLowerCase().includes(query) ||
+          prog.description.toLowerCase().includes(query);
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      grid.innerHTML = filtered.map(prog => `
+        <div onclick="openProgramModalById('${prog.id}')" class="cursor-pointer bg-white rounded-3xl p-6 border border-slate-200/80 soft-shadow-hover flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-au-skySoft text-au-sky">
+                ${prog.faculty}
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 border border-amber-200/60">
+                ${prog.badge}
+              </span>
+            </div>
+
+            <h3 class="font-display font-extrabold text-lg text-au-navy group-hover:text-au-sky transition">
+              ${prog.title}
+            </h3>
+
+            <p class="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+              ${prog.description}
+            </p>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+            <div>
+              <span class="text-slate-400 block text-[11px]">Est. Fee</span>
+              <span class="font-bold text-au-navy">${prog.fee}</span>
+            </div>
+            <span class="inline-flex items-center gap-1.5 font-bold text-au-sky group-hover:translate-x-1 transition">
+              Details & Eligibility <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setProgramCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = 'cat-pill active px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-au-navy text-white shadow-sm transition shrink-0';
+        } else {
+          btn.className = 'cat-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-slate-600 hover:bg-blue-50 border border-slate-200 transition shrink-0';
+        }
+      });
+      renderPrograms();
+    }
+
+    function filterProgramsByCategory(cat) {
+      setProgramCategory(cat);
+    }
+
+    function filterPrograms() {
+      renderPrograms();
+    }
+
+    function resetProgramFilters() {
+      document.getElementById('programSearchInput').value = '';
+      setProgramCategory('All');
+    }
+
+    // ---------- RENDER CAMPUSES ----------
+    function selectCampus(key) {
+      const data = campusesData[key];
+      if (!data) return;
+
+      document.querySelectorAll('.campus-tab').forEach(btn => {
+        if (btn.dataset.campus === key) {
+          btn.className = 'campus-tab active px-5 py-3 rounded-2xl text-sm font-bold bg-au-navy text-white shadow-md transition flex items-center gap-2';
+        } else {
+          btn.className = 'campus-tab px-5 py-3 rounded-2xl text-sm font-semibold bg-au-bg text-slate-600 hover:bg-slate-200/70 transition flex items-center gap-2';
+        }
+      });
+
+      const container = document.getElementById('campusDisplay');
+      container.innerHTML = `
+        <div class="grid lg:grid-cols-12 gap-8 items-center animate-fade-in-up">
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-au-navy shadow-md">
+              <img 
+                src="${data.image}" 
+                onerror="this.src='${data.fallback}'"
+                alt="${data.name}" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-blue-100 text-au-sky text-xs font-bold">${data.students}</span>
+              <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">${data.faculties}</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-au-navy">${data.name}</h3>
+            <p class="text-sm sm:text-base text-slate-600">${data.tagline}</p>
+
+            <div class="grid sm:grid-cols-2 gap-2.5 pt-2">
+              ${data.highlights.map(item => `
+                <div class="flex items-center gap-2.5 bg-white p-3 rounded-xl border border-slate-200/70 text-xs sm:text-sm font-medium text-slate-700">
+                  <i class="fa-solid fa-circle-check text-au-sky shrink-0"></i>
+                  <span>${item}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="pt-3 flex flex-wrap gap-3">
+              <button onclick="openApplyModal('Admission - ${data.name}')" class="px-5 py-2.5 rounded-xl bg-au-navy hover:bg-au-navyDark text-white text-xs sm:text-sm font-bold transition">
+                Apply to This Campus
+              </button>
+              <button onclick="showToast('Campus directions & transport route map opened.', 'info')" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-au-navy border border-slate-200 text-xs sm:text-sm font-semibold transition">
+                <i class="fa-solid fa-bus text-au-amber mr-1.5"></i> Transport Routes
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ---------- RENDER NOTICES ----------
+    function renderNotices() {
+      const grid = document.getElementById('noticesGrid');
+      const filtered = noticesData.filter(n => currentNoticeCategory === 'All' || n.category === currentNoticeCategory);
+
+      grid.innerHTML = filtered.map(notice => `
+        <article class="bg-white rounded-3xl p-6 border border-slate-200/80 soft-shadow-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="px-2.5 py-1 rounded-full font-bold ${
+                notice.category === 'Admissions' ? 'bg-blue-50 text-au-sky' :
+                notice.category === 'Research' ? 'bg-emerald-50 text-emerald-700' :
+                'bg-amber-50 text-amber-700'
+              }">${notice.category}</span>
+              <span class="text-slate-400 font-medium">${notice.date}</span>
+            </div>
+            <h3 class="font-display font-bold text-lg text-au-navy leading-snug">${notice.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">${notice.summary}</p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100">
+            <button onclick="openNoticeModal(${notice.id})" class="text-xs sm:text-sm font-bold text-au-sky hover:text-au-navy flex items-center gap-1.5 transition">
+              Read Full Notice <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterNotices(cat) {
+      currentNoticeCategory = cat;
+      document.querySelectorAll('.notice-tab').forEach(btn => {
+        if (btn.dataset.notice === cat) {
+          btn.className = 'notice-tab active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-au-navy text-white transition';
+        } else {
+          btn.className = 'notice-tab px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-au-navy transition';
+        }
+      });
+      renderNotices();
+    }
+
+    // ---------- MODAL CONTROLLERS ----------
+    function hideAllModalBoxes() {
+      ['programModal', 'applyModal', 'portalModal', 'noticeModal', 'searchModal'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+    }
+
+    function openModalBackdrop(modalId) {
+      hideAllModalBoxes();
+      document.getElementById('modalBackdrop').classList.remove('hidden');
+      document.getElementById(modalId).classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAllModals() {
+      document.getElementById('modalBackdrop').classList.add('hidden');
+      hideAllModalBoxes();
+      document.body.style.overflow = '';
+    }
+
+    function openProgramModalById(id) {
+      const prog = programsData.find(p => p.id === id);
+      if (!prog) return;
+
+      document.getElementById('pmFacultyBadge').textContent = prog.faculty;
+      document.getElementById('pmTitle').textContent = prog.title;
+      document.getElementById('pmMeta').textContent = `${prog.duration} • ${prog.credits} • ${prog.badge}`;
+      document.getElementById('pmDescription').textContent = prog.description;
+      document.getElementById('pmFee').textContent = prog.fee;
+      document.getElementById('pmTest').textContent = prog.test;
+      document.getElementById('pmCampuses').textContent = prog.campuses;
+      document.getElementById('pmEligibility').textContent = prog.eligibility;
+
+      document.getElementById('pmApplyBtn').onclick = () => {
+        openApplyModal(`Apply: ${prog.title}`, prog.title);
+      };
+
+      openModalBackdrop('programModal');
+    }
+
+    function openApplyModal(titleText, preselectProgram = null) {
+      document.getElementById('applyModalTitle').textContent = titleText;
+      if (preselectProgram) {
+        const select = document.getElementById('applyProgramSelect');
+        for (let opt of select.options) {
+          if (opt.text.toLowerCase().includes(preselectProgram.toLowerCase().slice(0, 12))) {
+            select.value = opt.value;
+            break;
+          }
+        }
+      }
+      openModalBackdrop('applyModal');
+    }
+
+    function openPortalModal(title, desc, type) {
+      document.getElementById('portalModalTitle').textContent = title;
+      document.getElementById('portalModalDesc').textContent = desc;
+      const area = document.getElementById('portalDynamicArea');
+
+      if (type === 'merit') {
+        area.innerHTML = `
+          <form onsubmit="checkDemoMerit(event)" class="space-y-3">
+            <input type="text" required placeholder="Enter AU-CBT Roll No. (e.g. AU-26-4819)" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition">
+              Verify Merit Standing
+            </button>
+          </form>
+          <div id="meritResultOutput" class="hidden p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900"></div>
+        `;
+      } else if (type === 'challan') {
+        area.innerHTML = `
+          <form onsubmit="generateDemoChallan(event)" class="space-y-3">
+            <input type="text" required placeholder="Student Reg ID or Candidate Tracking ID" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-au-amber hover:bg-amber-500 text-au-navyDark font-bold text-sm transition">
+              Generate 1-Bill Fee Challan
+            </button>
+          </form>
+          <div id="challanResultOutput" class="hidden p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900"></div>
+        `;
+      } else {
+        area.innerHTML = `
+          <form onsubmit="demoPortalLogin(event, '${title}')" class="space-y-3">
+            <input type="text" required placeholder="University ID / Roll Number (e.g. 241098)" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+            <input type="password" required placeholder="SSO Password" class="w-full px-4 py-2.5 rounded-xl bg-au-bg border border-slate-200 text-sm focus:outline-none focus:border-au-sky" />
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-au-navy hover:bg-au-navyDark text-white font-bold text-sm transition">
+              Sign In to ${title}
+            </button>
+          </form>
+        `;
+      }
+
+      openModalBackdrop('portalModal');
+    }
+
+    function openNoticeModal(id) {
+      const notice = noticesData.find(n => n.id === id);
+      if (!notice) return;
+      document.getElementById('nmCategory').textContent = notice.category;
+      document.getElementById('nmTitle').textContent = notice.title;
+      document.getElementById('nmDate').textContent = `Published: ${notice.date} • Directorate of Academics & Admissions`;
+      document.getElementById('nmBody').textContent = notice.fullText;
+      openModalBackdrop('noticeModal');
+    }
+
+    function openScholarshipsModal() {
+      document.getElementById('nmCategory').textContent = 'Financial Aid & Scholarships';
+      document.getElementById('nmTitle').textContent = 'Merit, Need-Based & HEC Scholarships 2026';
+      document.getElementById('nmDate').textContent = 'Up to 100% Tuition Fee Waiver Available';
+      document.getElementById('nmBody').textContent = 
+        'Air University awards over PKR 280 Million annually in financial assistance:\n\n' +
+        '• Top-3 Position Holders in BISE / FBISE: 100% Tuition Fee Waiver.\n' +
+        '• High Achievers in AU-CBT / NAT (85%+ Aggregate): 50% to 75% Merit Scholarship.\n' +
+        '• HEC Need-Based & Ehsaas / Honhaar Scholarship Schemes.\n' +
+        '• Kinship & Armed Forces / Shuhada Special Fee Concessions.\n\n' +
+        'Students can apply for Financial Aid directly inside the Online Admission Portal after submitting their program application.';
+      openModalBackdrop('noticeModal');
+    }
+
+    function openVirtualTourModal() {
+      document.getElementById('nmCategory').textContent = 'Interactive Campus Overview';
+      document.getElementById('nmTitle').textContent = 'Islamabad Sector E-9 Campus Facilities';
+      document.getElementById('nmDate').textContent = 'PAF Complex, Margalla Foothills, Islamabad';
+      document.getElementById('nmBody').textContent = 
+        'Explore key landmarks across the Islamabad Main Campus:\n\n' +
+        '• Academic Blocks A, B & C: Smart multimedia lecture halls & faculty offices.\n' +
+        '• Aerospace & Avionics Block: Wind tunnels, flight simulators & cleanrooms.\n' +
+        '• NCCS & Computing Wing: High-performance AI clusters & cyber range labs.\n' +
+        '• Central Library & Auditorium: 3-story quiet study zones & 600-seat auditorium.\n' +
+        '• Student Facilitation Center: One-window desk for admissions, fee & transport.';
+      openModalBackdrop('noticeModal');
+    }
+
+    function openSearchModal() {
+      openModalBackdrop('searchModal');
+      setTimeout(() => document.getElementById('globalSearchInput').focus(), 80);
+    }
+
+    function runGlobalSearch(val) {
+      const container = document.getElementById('globalSearchResults');
+      const q = val.trim().toLowerCase();
+      if (!q) return;
+
+      const matchedPrograms = programsData.filter(p => p.title.toLowerCase().includes(q) || p.faculty.toLowerCase().includes(q));
+      const matchedNotices = noticesData.filter(n => n.title.toLowerCase().includes(q));
+
+      let html = '';
+      matchedPrograms.forEach(p => {
+        html += `
+          <button onclick="closeAllModals(); openProgramModalById('${p.id}')" class="w-full text-left p-3 rounded-xl hover:bg-au-skySoft flex items-center justify-between transition">
+            <div>
+              <p class="text-sm font-bold text-au-navy">${p.title}</p>
+              <p class="text-xs text-slate-500">${p.faculty} • ${p.fee}</p>
+            </div>
+            <span class="text-xs text-au-sky font-bold">Program →</span>
+          </button>
+        `;
+      });
+
+      matchedNotices.forEach(n => {
+        html += `
+          <button onclick="closeAllModals(); openNoticeModal(${n.id})" class="w-full text-left p-3 rounded-xl hover:bg-au-skySoft flex items-center justify-between transition">
+            <div>
+              <p class="text-sm font-bold text-au-navy">${n.title}</p>
+              <p class="text-xs text-slate-500">${n.category} • ${n.date}</p>
+            </div>
+            <span class="text-xs text-amber-600 font-bold">Notice →</span>
+          </button>
+        `;
+      });
+
+      container.innerHTML = html || `<p class="text-sm text-slate-500 text-center py-6">No instant matches for "${val}". Try searching "AI", "Aerospace", or "Merit".</p>`;
+    }
+
+    // ---------- FORM SUBMISSIONS & INTERACTIVE FEEDBACK ----------
+    function submitApplicationForm(e) {
+      e.preventDefault();
+      const trackingId = 'AU-2026-' + Math.floor(10000 + Math.random() * 90000);
+      closeAllModals();
+      showToast(`Application Created! Your Tracking ID is ${trackingId}. Check your email/SMS for challan.`, 'success');
+    }
+
+    function checkDemoMerit(e) {
+      e.preventDefault();
+      const out = document.getElementById('meritResultOutput');
+      out.classList.remove('hidden');
+      out.innerHTML = `<strong>Status: Selected (1st Merit List)</strong><br/>Aggregate Score: 84.65% • Provisional Offer Letter & Fee Challan are ready for download.`;
+    }
+
+    function generateDemoChallan(e) {
+      e.preventDefault();
+      const out = document.getElementById('challanResultOutput');
+      const kuickId = '1001145' + Math.floor(100000 + Math.random() * 900000);
+      out.classList.remove('hidden');
+      out.innerHTML = `<strong>1-Bill / KuickPay ID: ${kuickId}</strong><br/>Payable via any Mobile Banking App, ATM, or HBL/Askari Bank branch.`;
+    }
+
+    function demoPortalLogin(e, portalName) {
+      e.preventDefault();
+      closeAllModals();
+      showToast(`Authenticated via AU Single Sign-On! Redirecting to ${portalName}...`, 'success');
+    }
+
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('newsletterEmail');
+      showToast(`Subscribed ${input.value} to Air University Admission Alerts!`, 'success');
+      input.value = '';
+    }
+
+    // ---------- FLOATING VIRTUAL ADMISSION ADVISOR ----------
+    function toggleAdvisor() {
+      const box = document.getElementById('advisorBox');
+      box.classList.toggle('hidden');
+    }
+
+    function askAdvisor(question) {
+      const messages = document.getElementById('advisorMessages');
+      messages.innerHTML += `
+        <div class="bg-au-navy text-white p-3 rounded-2xl rounded-tr-none ml-auto max-w-[85%] shadow-sm">
+          ${question}
+        </div>
+      `;
+
+      let reply = 'You can apply online via the "Apply Now" button. Our Admissions Office at Sector E-9, Islamabad is also open Mon–Fri (8:30 AM – 4:30 PM).';
+      const q = question.toLowerCase();
+      if (q.includes('cs') || q.includes('ai') || q.includes('eligibility')) {
+        reply = 'For BS CS, AI & Cyber Security: Minimum 50% marks in FSc (Pre-Eng / Pre-Med with Maths) or ICS / A-Levels is required, plus AU-CBT or valid NAT-IE/ICS.';
+      } else if (q.includes('nat') || q.includes('cbt') || q.includes('test')) {
+        reply = 'Air University conducts its own Computer-Based Test (AU-CBT) across all campuses, AND also accepts valid NTS NAT / HEC USAT scores!';
+      } else if (q.includes('scholarship') || q.includes('fee')) {
+        reply = 'We offer up to 100% Merit Scholarships for Board Toppers & high AU-CBT scorers, plus HEC Need-Based and Honhaar scholarships.';
+      } else if (q.includes('hostel') || q.includes('transport')) {
+        reply = 'Separate on-campus hostels for boys and girls are available at Islamabad & Kamra, along with bus routes covering Rawalpindi & Islamabad.';
+      }
+
+      setTimeout(() => {
+        messages.innerHTML += `
+          <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 text-slate-700 max-w-[90%]">
+            ${reply}
+          </div>
+        `;
+        messages.scrollTop = messages.scrollHeight;
+      }, 280);
+    }
+
+    function handleAdvisorSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('advisorInput');
+      if (!input.value.trim()) return;
+      askAdvisor(input.value.trim());
+      input.value = '';
+    }
+
+    // ---------- MOBILE MENU & TOAST NOTIFICATIONS ----------
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto flex items-center gap-3 bg-au-navy text-white px-4 py-3 rounded-2xl shadow-xl border border-slate-700 text-xs sm:text-sm font-medium animate-pop-in max-w-sm';
+      toast.innerHTML = `
+        <i class="fa-solid ${type === 'success' ? 'fa-circle-check text-emerald-400' : 'fa-circle-info text-sky-400'} text-base"></i>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // Keyboard shortcuts (Ctrl+K for Search, Escape to close modals)
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openSearchModal();
+      } else if (e.key === 'Escape') {
+        closeAllModals();
+      }
+    });
+
+    // Initialize dynamic sections on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPrograms();
+      selectCampus('islamabad');
+      renderNotices();
+    });
+  </script>
+</body>
+</html>
